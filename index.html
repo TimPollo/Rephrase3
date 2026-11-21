@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151821">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Rephrase">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon.png">
+<link rel="icon" href="./icon.png">
+<title>Rephrase</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#151821;color:#f6f5ee;font:16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+main{max-width:480px;margin:auto;padding:max(24px,env(safe-area-inset-top)) 20px max(24px,env(safe-area-inset-bottom))}
+header{display:flex;align-items:center;gap:12px;margin:0 0 24px}
+header img{border-radius:12px}
+h1{font-size:24px;margin:0;letter-spacing:-.035em}
+section{border:1px solid #3f4557;background:#202431;border-radius:24px;padding:24px;min-height:185px;display:flex;flex-direction:column;justify-content:center;overflow-wrap:anywhere}
+#result{font-size:clamp(32px,9vw,53px);font-weight:750;line-height:1.06;letter-spacing:-.045em;margin:0;white-space:pre-line}
+#status{color:#c6cadd;margin:0;line-height:1.45}
+#status:empty{display:none}
+button,label{display:block;width:100%;text-align:center;border-radius:14px;padding:15px 12px;font:inherit;font-weight:700;cursor:pointer}
+button{margin-top:16px;color:#151821;background:#d8fb83;border:1px solid #d8fb83}
+label{margin-top:10px;border:1px solid #555e76;color:#f6f5ee}
+button:disabled{opacity:.65}
+input{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+button:focus-visible,input:focus-visible+label{outline:2px solid white;outline-offset:3px}
+footer{margin-top:20px;text-align:center;color:#b9bfd1;font-size:13px}
+</style>
+<main>
+<header><img src="./icon.png" width="40" height="40" alt=""><h1>Rephrase</h1></header>
+<section aria-live="polite" aria-atomic="true">
+<p id="status">Setze ein Bild ein oder wähle ein Foto aus.</p>
+<p id="result" lang="en"></p>
+</section>
+<button id="paste" type="button">Bild einsetzen</button>
+<input id="photo" type="file" accept="image/*"><label for="photo">Foto auswählen</label>
+<footer>Die Texterkennung läuft auf deinem Gerät.</footer>
+</main>
+<script defer src="./tesseract.min.js"></script>
+<script defer src="./app.js"></script>
+</html>
